@@ -35,6 +35,12 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        //Generating 4 random users upon migration
+        \App\Models\User::factory()->count(4)->create();
+
+        //Generating a manual user
+        \App\Models\User::create(["name" => "Tester", "email" => "bob@marley.com", "password" => bcrypt("pass")]);
     }
 
     /**
