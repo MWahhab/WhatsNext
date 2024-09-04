@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class objective extends Model
+class ArchivedObjective extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,11 @@ class objective extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "objective_fid",
-        "user_fid"
+        "task",
+        "description",
+        "date_due",
+        "time_due",
+        "user_fid",
+        "completed"
     ];
 }

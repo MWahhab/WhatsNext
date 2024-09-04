@@ -13,9 +13,17 @@ return new class extends Migration
     {
         Schema::create('objectives', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
+            $table->string("task");
             $table->string("description");
-            $table->integer("repeat_days_interval")->nullable();
+            $table->boolean("repeat");
+            $table->integer("repeat_interval")->nullable();
+            $table->string("monday")->nullable();
+            $table->string("tuesday")->nullable();
+            $table->string("wednesday")->nullable();
+            $table->string("thursday")->nullable();
+            $table->string("friday")->nullable();
+            $table->string("saturday")->nullable();
+            $table->string("sunday")->nullable();
             $table->string("date_due");
             $table->string("time_due");
             $table->foreignId("user_fid")->references("id")->on("users");

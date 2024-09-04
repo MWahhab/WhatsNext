@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\accomplishments;
+use App\Models\ArchivedObjective;
 use Illuminate\Http\Request;
 
-class AccomplishmentsController extends Controller
+class ArchivedObjectiveController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class AccomplishmentsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(accomplishments $accomplishments)
+    public function show(ArchivedObjective $archivedObjective)
     {
         //
     }
@@ -42,7 +42,7 @@ class AccomplishmentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(accomplishments $accomplishments)
+    public function edit(ArchivedObjective $archivedObjective)
     {
         //
     }
@@ -50,7 +50,7 @@ class AccomplishmentsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, accomplishments $accomplishments)
+    public function update(Request $request, ArchivedObjective $archivedObjective)
     {
         //
     }
@@ -58,7 +58,7 @@ class AccomplishmentsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(accomplishments $accomplishments)
+    public function destroy(ArchivedObjective $archivedObjective)
     {
         //
     }

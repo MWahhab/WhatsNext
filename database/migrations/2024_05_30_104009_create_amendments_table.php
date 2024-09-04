@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accomplishments', function (Blueprint $table) {
+        Schema::create('amendments', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_fid")->references("id")->on("users");
             $table->foreignId("objective_fid")->references("id")->on("objectives");
+            $table->string("task_due_date");
+            $table->boolean("accomplished");
+            $table->boolean("deleted")->default(0);
             $table->timestamps();
         });
     }
