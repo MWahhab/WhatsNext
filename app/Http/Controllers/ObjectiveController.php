@@ -189,7 +189,6 @@ class ObjectiveController extends Controller
             $taskDetails["task"], $taskDetails["description"], $taskDetails["time_due"], $taskDetails["id"]
             )) {
             return null;
-            //return redirect()->back()->with("Error: ", "Missing task details for assignment to view!");
         }
 
         $task = [
@@ -310,7 +309,6 @@ class ObjectiveController extends Controller
     {
         if($dateString == "") {
             return "";
-            //return redirect()->back()->with("Error: ", "Unable to retrieve day as no date has been provided");
         }
 
         return Carbon::createFromFormat("d/m/Y", $dateString)->format("l");

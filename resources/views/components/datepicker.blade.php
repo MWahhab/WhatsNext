@@ -27,11 +27,6 @@
             datepickerInput.addEventListener('input', function () {
                 retrieveObjectives();
             });
-
-            // If you prefer using 'change' event:
-            // datepickerInput.addEventListener('change', function () {
-            //     retrieveObjectives();
-            // });
         }
     });
 

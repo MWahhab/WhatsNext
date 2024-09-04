@@ -150,10 +150,6 @@
         });
     }
 
-    // function setAllRepeatEditedFields(typeOfDetail, objId, newDetail){
-    //
-    // }
-
     function deleteTask() {
         alterEditFormVisibility();
 
