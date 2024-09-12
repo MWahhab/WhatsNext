@@ -26,12 +26,8 @@ WORKDIR /var/www
 COPY --from=build /var/www /var/www
 COPY --from=build /etc/apache2/conf.d/ /etc/apache2/conf.d/
 
-RUN chown -R www-data:www-data /var/www /var/www/storage /var/www/bootstrap/cache && chmod -R 755 /var/www
-
-RUN chmod -R 755 /var/www/storage /var/www/bootstrap/cache
-
-# Set correct permissions for public directory
-#RUN chmod -R 755 /var/www/public
+RUN chown -R www-data:www-data /var/www /var/www/storage /var/www/bootstrap/cache && \
+    chmod -R 755 /var/www /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 80
 
