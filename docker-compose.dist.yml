@@ -20,13 +20,23 @@ services:
     container_name: phpmyadmin_WhatsNext
     environment:
       PMA_HOST: mysql # Use the service name of MySQL as the host
-      PMA_PORT: *
+      PMA_PORT: 3306
       PMA_USER: * # Optional: For auto-login in phpMyAdmin
       PMA_PASSWORD: * # Optional: For auto-login in phpMyAdmin
     ports:
       - "8080:80"
     depends_on:
       - mysql
+
+      # Laravel Application Service
+  app:
+    image: mrnaga619/whatsnext:latest
+    container_name: laravel_app_WhatsNext
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+
 
 volumes:
   mysql_data:
