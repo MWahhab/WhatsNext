@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
     mysql:
-        image: mysql:5.7
+        image: mysql:latest
         container_name: mysql_container_WhatsNext
         environment:
             MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD} # Use a secure password

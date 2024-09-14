@@ -17,7 +17,7 @@ RUN adduser -S www-data -G www-data
 
 RUN apk add --no-cache apache2 apache2-utils apache2-proxy apache2-ssl \
      php82 php82-fpm php82-cli php82-json php82-mbstring php82-opcache php82-tokenizer \
-    php82-pdo php82-pdo_mysql php82-mysqli php82-ctype php82-session mysql-client curl && \
+    php82-pdo php82-pdo_mysql php82-mysqli php82-ctype php82-session php82-dom mysql-client curl && \
     ln -s /usr/sbin/php-fpm82 /usr/sbin/php-fpm && \
     ln -s /usr/bin/php82 /usr/bin/php
 
