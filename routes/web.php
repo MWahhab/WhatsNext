@@ -25,6 +25,7 @@ Route::get("/objective/repeatObjectivesRetrieval", [ObjectiveController::class, 
     ->name("objective.retrieveRepeatObjectives");
 
 Route::resource("objective", ObjectiveController::class)->only(["store", "show", "update", "destroy"]);
+
 Route::resource("amendment", AmendmentController::class);
 
 require __DIR__.'/auth.php';

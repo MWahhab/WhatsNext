@@ -3,7 +3,7 @@ FROM php:8.2-fpm-alpine as build
 WORKDIR /var/www
 COPY . /var/www
 
-RUN apk add --no-cache bash git nodejs npm && \
+RUN apk add --no-cache bash git nodejs npm autoconf gcc g++ make linux-headers && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     composer install --optimize-autoloader && \
     npm install && \
@@ -27,7 +27,7 @@ COPY --from=build /var/www /var/www
 COPY --from=build /etc/apache2/conf.d/ /etc/apache2/conf.d/
 
 RUN chown -R www-data:www-data /var/www /var/www/storage /var/www/bootstrap/cache && \
-    chmod -R 755 /var/www /var/www/storage /var/www/bootstrap/cache
+    chmod -R 777 /var/www /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 80
 

@@ -263,27 +263,19 @@ class ObjectiveController extends Controller
                 "repeat"      => "required|string",
                 "date_due"    => "required|string",
                 "time_due"    => "required|string",
+                "monday"      => "nullable|string", // Nullable days of the week
+                "tuesday"     => "nullable|string",
+                "wednesday"   => "nullable|string",
+                "thursday"    => "nullable|string",
+                "friday"      => "nullable|string",
+                "saturday"    => "nullable|string",
+                "sunday"      => "nullable|string",
             ]
         );
 
-        $validatedRequest["repeat"]   = $validatedRequest["repeat"] == "on" ? 1 : 0;
-        $validatedRequest["user_fid"] = Auth::id();
-
-        if($validatedRequest["repeat"] == 1) {
-            $validatedRequest["repeat_interval"] = $request->input("interval");
-
-            if(!$validatedRequest["repeat_interval"]) {
-                foreach (DaysOfWeek::retrieveDaysOfWeek() as $day) {
-                    $request->input($day) && $validatedRequest[$day] = $request->input($day);
-
-                    isset($validatedRequest[$day]) && $dayNeeded = false;
-                }
-
-                !isset($dayNeeded) &&
-                    $validatedRequest[strtolower(self::convertDateToDay($validatedRequest["date_due"]))] = "on";
-            }
-
-        }
+        $validatedRequest["repeat"]          = $validatedRequest["repeat"] == "on" ? 1 : 0;
+        $validatedRequest["repeat_interval"] = $request->input("interval");
+        $validatedRequest["user_fid"]        = Auth::id();
 
         try{
             $insertedRow = Objective::create($validatedRequest);

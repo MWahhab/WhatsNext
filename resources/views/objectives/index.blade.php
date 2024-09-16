@@ -15,9 +15,6 @@
             </div>
         </div>
 
-
-
-
         <x-view-days :dates-with-objectives="$datesWithObjectives"/>
 
     </div>
